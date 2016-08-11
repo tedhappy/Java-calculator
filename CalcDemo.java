@@ -11,7 +11,7 @@ public class CalcDemo {
 	public static void main(String[] args) {
 		System.out.println(exec("-8*(((-2+4)+3)/((-1-5)*-2)-5)"));
 
-	}
+	} 
 	
 	/**
 	 * 
