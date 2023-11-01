@@ -1,3 +1,5 @@
+package Text;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -9,8 +11,8 @@ public class CalcDemo {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.println(exec("-8*(((-2+4)+3)/((-1-5)*-2)-5)"));
-
+		System.out.println(exec("-8*(((-2+4)+3)/((5-5)*-2)-5)"));//出现除数为零的情况
+	//原式：-8*(((-2+4)+3)/((-1-5)*-2)-5)
 	} 
 	
 	/**
@@ -77,6 +79,11 @@ public class CalcDemo {
 				// 从数字容器中获取对应该运算符位置的两个数字（移除）
 				double d1 = numbers.remove(i);
 				double d2 = numbers.remove(i);
+
+				if (op == '/' && d2 == 0.0) {
+					throw new IllegalArgumentException("除数不能为0");
+				}
+
 
 				// 运算
 				d1 = op == '*' ? d1 * d2 : d1 / d2;
